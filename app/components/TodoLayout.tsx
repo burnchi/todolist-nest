@@ -14,15 +14,16 @@ const TodoLayout = () => {
     queryFn: findTodos,
   });
 
-  if (isLoading) return "loading...";
-  if (isError) return `Error: ${error.message}`;
-
-  // console.log(todos);
+  console.log(todos);
   return (
     <div className="flex flex-col gap-2">
-      {todos.map((todo: any) => (
-        <TodoCard key={todo.id} {...todo} />
-      ))}
+      {todos && todos?.length !== 0 ? (
+        todos.map((todo: any) => <TodoCard key={todo.id} {...todo} />)
+      ) : (
+        <div className="w-[200px] h-[100px] shadow-md rounded-md flex justify-center items-center">
+          No todos found
+        </div>
+      )}
     </div>
   );
 };

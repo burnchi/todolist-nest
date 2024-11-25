@@ -2,7 +2,9 @@ const url = process.env.API_URL || "http://localhost:3000";
 const route = "/todo";
 
 export async function findTodos() {
-  const response = await fetch(url + route);
+  const response = await fetch(url + route, {
+    cache: "no-cache",
+  });
   return response.json();
 }
 
