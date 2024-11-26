@@ -14,7 +14,7 @@ const TodoLayout = () => {
     queryFn: findTodos,
   });
 
-  console.log(todos);
+  // console.log(todos);
   return (
     <div className="flex flex-col gap-2">
       {todos && todos?.length !== 0 ? (
